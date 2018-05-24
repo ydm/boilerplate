@@ -1,0 +1,10 @@
+375c375,381
+<         rx_bad_property = /^_|\$|Sync$|_$/,
+---
+>         // rx_bad_property = /^_|\$|Sync$|_$/,
+>         rx_bad_property = {
+>             test: function (id) {
+>                 var org = /^_|\$|Sync$|_$/;
+>                 return org.test(id) && id !== '_super';
+>             }
+>         },

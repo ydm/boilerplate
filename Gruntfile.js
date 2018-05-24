@@ -158,6 +158,18 @@ module.exports = function(grunt) {
       },
     },
 
+    jslint: {
+        xxx: {
+            src: ['js/**/*.js'],
+            exclude: [],
+            directives: {
+                browser: true,
+                predef: ['console', 'window'],
+                this: true
+            }
+        }
+    }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -170,6 +182,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-download-electron');
   grunt.loadNpmTasks('grunt-asar');
+  grunt.loadNpmTasks('grunt-jslint');
 
   // Custom Tasks
   grunt.loadTasks('tasks');
@@ -185,4 +198,5 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('dist', ['default', 'download-electron', 'asar']);
   grunt.registerTask('serve', ['resources', 'connect', 'watch']);
+  grunt.registerTask('check', ['jslint']);
 }
