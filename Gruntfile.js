@@ -161,7 +161,10 @@ module.exports = function(grunt) {
     jslint: {
         xxx: {
             src: ['js/**/*.js'],
-            exclude: [],
+            exclude: [
+                // 'js/entities/*.js',
+                // 'js/screens/*.js'
+            ],
             directives: {
                 browser: true,
                 predef: ['console', 'window'],
